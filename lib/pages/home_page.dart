@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_run_flutter/auth/auth_service.dart';
+import 'package:test_run_flutter/components/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,15 +12,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const MyDrawer(),
       appBar: AppBar(
-        title: const Text('Home Page'),
-        actions: [
-          IconButton(onPressed: logout, icon: const Icon(Icons.logout))
-        ],
+        backgroundColor: const Color(0xFFBABA99),
+        shape: const ContinuousRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(50),
+                bottomRight: Radius.circular(50))),
+        title: const Text('Weather Page'),
       ),
-      body: const Column(children: [
-        Text('home page'),
-      ]),
     );
   }
 }
