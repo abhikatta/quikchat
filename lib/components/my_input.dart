@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class MyInput extends StatelessWidget {
@@ -19,22 +21,23 @@ class MyInput extends StatelessWidget {
           autofillHints: null,
           controller: inputController,
           obscureText: obscureText,
-          cursorColor: Colors.blue,
           decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            enabledBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(6)),
-                borderSide: BorderSide(
-                  color: Colors.white,
-                )),
-            focusedBorder: const OutlineInputBorder(
-                borderRadius: BorderRadius.all(Radius.circular(6)),
-                borderSide: BorderSide(
-                  color: Colors.grey,
-                )),
-            hintText: hintText,
-          ),
+              filled: true,
+              fillColor: Theme.of(context).colorScheme.tertiary,
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.tertiary,
+                  )),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).colorScheme.secondary,
+                  )),
+              hintText: hintText,
+              hintStyle: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+              )),
         ));
   }
 }

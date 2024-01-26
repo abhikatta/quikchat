@@ -5,16 +5,22 @@ import 'package:test_run_flutter/auth/auth_service.dart';
 import 'package:test_run_flutter/components/my_button.dart';
 import 'package:test_run_flutter/components/my_input.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final void Function()? onTap;
-  LoginPage({super.key, required this.onTap});
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
-  void login(BuildContext context) async {
-    final authService = AuthService();
+  final void Function()? onTap;
+
+  RegisterPage({super.key, required this.onTap});
+  void register(BuildContext context) async {
+    final AuthService auth = AuthService();
     try {
-      await authService.signInWithEmailPassword(
+      await auth.signUpWithEmailPassword(_emailController.text,
+          _passwordController.text, _confirmPasswordController.text);
+
+      await auth.signInWithEmailPassword(
           _emailController.text, _passwordController.text);
     } catch (e) {
       showDialog(
@@ -44,10 +50,11 @@ class LoginPage extends StatelessWidget {
           ),
 
           Text(
-            "Welcome Back! Let's get started!",
+            'Create a new account!',
             style: TextStyle(
                 color: Theme.of(context).colorScheme.primary, fontSize: 20),
           ),
+
           SizedBox(
             height: 25,
           ),
@@ -65,18 +72,26 @@ class LoginPage extends StatelessWidget {
             hintText: 'Password',
           ),
           SizedBox(
+            height: 15,
+          ),
+          MyInput(
+            hintText: 'Confirm Password',
+            obscureText: true,
+            inputController: _confirmPasswordController,
+          ),
+          SizedBox(
             height: 25,
           ),
           MyButton(
-            onTap: () => login(context),
-            buttonText: 'Login',
+            onTap: () => register(context),
+            buttonText: 'Register',
           ),
           SizedBox(
             height: 25,
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
-              'Not a member?',
+              'Already have an account?',
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
             ),
             SizedBox(
@@ -85,7 +100,7 @@ class LoginPage extends StatelessWidget {
             GestureDetector(
               onTap: onTap,
               child: Text(
-                'Register Now!',
+                'Login',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).colorScheme.primary),
