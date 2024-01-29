@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_run_flutter/auth/auth_service.dart';
+import 'package:test_run_flutter/services/auth/auth_service.dart';
 import 'package:test_run_flutter/components/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
