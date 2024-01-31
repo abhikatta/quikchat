@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:test_run_flutter/components/user_component.dart';
 import 'package:test_run_flutter/pages/chat_page.dart';
@@ -36,7 +35,7 @@ class HomePage extends StatelessWidget {
           IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ProfilePage()));
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
             },
             icon: const Icon(
               Icons.person,
@@ -84,6 +83,7 @@ class HomePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ChatPage(
+                    receiverID: userData['uid'],
                     email: userData['displayName'],
                   ),
                 ));
