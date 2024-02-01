@@ -73,7 +73,7 @@ class ChatPage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
                   child: Text(
-                    data['senderUserName'] ?? 'no senderusername',
+                    data['senderUserName'] ?? '',
                     style: TextStyle(
                         backgroundColor:
                             Theme.of(context).colorScheme.secondary),
@@ -102,6 +102,7 @@ class ChatPage extends StatelessWidget {
 
   Widget _buildUserInput() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
             child: MyInput(
