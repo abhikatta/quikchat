@@ -5,9 +5,9 @@ import 'package:quikchat/services/auth/auth_service.dart';
 import 'package:quikchat/services/chat/chat_service.dart';
 
 class ChatPage extends StatelessWidget {
-  ChatPage({super.key, required this.email, required this.receiverID});
+  ChatPage({super.key, required this.displayName, required this.receiverID});
 
-  final String email;
+  final String displayName;
   final String receiverID;
   final TextEditingController _messageController = TextEditingController();
 
@@ -30,7 +30,10 @@ class ChatPage extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50))),
-        title: Text(email),
+        title: Text(
+          displayName,
+          style: const TextStyle(fontFamily: 'LexendDeca', fontSize: 30),
+        ),
         centerTitle: true,
       ),
       body: Column(children: [

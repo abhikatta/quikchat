@@ -59,16 +59,24 @@ class HomePage extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return const Text("Error");
-        } else if (snapshot.hasData) {
         } else if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Text('Loading..');
+          return const Center(
+            child: Text(
+              'Loading..',
+              style: TextStyle(fontSize: 30),
+            ),
+          );
+        } else if (snapshot.hasData) {
+          return ListView(
+            children: [
+              const SizedBox(height: 10),
+              ...snapshot.data!.map<Widget>(
+                  (userData) => _buildUserListItem(userData, context))
+            ],
+          );
         }
-        return ListView(
-          children: [
-            const SizedBox(height: 10),
-            ...snapshot.data!.map<Widget>(
-                (userData) => _buildUserListItem(userData, context))
-          ],
+        return const Center(
+          child: Text('No Users found'),
         );
       },
     );
@@ -86,7 +94,7 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => ChatPage(
                     receiverID: userData['uid'],
-                    email: userData['displayName'],
+                    displayName: userData['displayName'],
                   ),
                 ));
           });

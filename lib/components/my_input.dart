@@ -36,6 +36,7 @@ class MyInput extends StatelessWidget {
                       color: Theme.of(context).colorScheme.primary, width: 3)),
               hintText: hintText,
               hintStyle: TextStyle(
+                fontFamily: 'LexendDeca',
                 color: Theme.of(context).colorScheme.primary,
               )),
         ));
