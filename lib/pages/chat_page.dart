@@ -91,10 +91,23 @@ class ChatPage extends StatelessWidget {
                     data['senderUserName']
                 ? 10
                 : 100),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 3),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.tertiary,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(
+                _authService.getCurrentUser()!.displayName ==
+                        data['senderUserName']
+                    ? 40
+                    : 0),
+            bottomLeft: const Radius.circular(40),
+            bottomRight: const Radius.circular(40),
+            topRight: Radius.circular(
+                _authService.getCurrentUser()!.displayName ==
+                        data['senderUserName']
+                    ? 0
+                    : 40),
+          ),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,9 +143,9 @@ class ChatPage extends StatelessWidget {
             splashRadius: 2,
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
-                    Theme.of(context).colorScheme.primary),
+                    Theme.of(context).colorScheme.background),
                 padding: const MaterialStatePropertyAll<EdgeInsets>(
-                    EdgeInsets.all(10)),
+                    EdgeInsets.only(left: 5, right: 5)),
                 alignment: Alignment.center,
                 iconColor: MaterialStateProperty.all<Color>(
                     Theme.of(context).colorScheme.inversePrimary)),

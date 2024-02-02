@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
           )
         ],
         centerTitle: true,
-        titleTextStyle: const TextStyle(fontFamily: 'Arial', fontSize: 30),
+        titleTextStyle: const TextStyle(fontFamily: 'LexendDeca', fontSize: 30),
       ),
       body: _buildUsersWidget(),
     );
