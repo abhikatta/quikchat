@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:test_run_flutter/components/my_input.dart';
-import 'package:test_run_flutter/components/square_tile.dart';
-// import 'package:test_run_flutter/pages/test_screen.dart';
+import 'package:quikchat/components/my_input.dart';
+import 'package:quikchat/components/square_tile.dart';
+// import 'package:quikchat/pages/test_screen.dart';
 
 class TestLoginPage extends StatelessWidget {
   final usernameController = TextEditingController();

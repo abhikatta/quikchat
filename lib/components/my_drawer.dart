@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_run_flutter/auth/auth_service.dart';
-import 'package:test_run_flutter/pages/home_page.dart';
-import 'package:test_run_flutter/pages/settings_page.dart';
+import 'package:quikchat/services/auth/auth_service.dart';
+import 'package:quikchat/pages/home_page.dart';
+import 'package:quikchat/pages/settings_page.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -30,10 +30,8 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25),
                 child: ListTile(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomePage()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomePage()));
                     },
                     contentPadding: const EdgeInsets.all(10),
                     leading: const Icon(
