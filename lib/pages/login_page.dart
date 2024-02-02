@@ -79,11 +79,14 @@ class LoginPage extends StatelessWidget {
               'Not a member?',
               style: TextStyle(color: Theme.of(context).colorScheme.primary),
             ),
-            SizedBox(
-              width: 4,
-            ),
-            GestureDetector(
-              onTap: onTap,
+            TextButton(
+              onPressed: onTap,
+              style: ButtonStyle(
+                padding: MaterialStateProperty.all<EdgeInsets>(
+                    EdgeInsets.symmetric(horizontal: 5)),
+                overlayColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).colorScheme.background),
+              ),
               child: Text(
                 'Register Now!',
                 style: TextStyle(

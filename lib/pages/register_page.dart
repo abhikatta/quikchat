@@ -41,89 +41,92 @@ class RegisterPage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: ListView(children: [
           Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                // logo
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+            // logo
+            SizedBox(
+              height: 50,
+            ),
 
-                const Icon(
-                  Icons.message,
-                  size: 40,
+            const Icon(
+              Icons.message,
+              size: 40,
+            ),
+
+            const SizedBox(
+              height: 50,
+            ),
+
+            Text(
+              'Create a new account!',
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary, fontSize: 20),
+            ),
+
+            SizedBox(
+              height: 25,
+            ),
+            MyInput(
+              hintText: 'Username',
+              obscureText: false,
+              inputController: _usernameController,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            MyInput(
+              hintText: 'Email',
+              obscureText: false,
+              inputController: _emailController,
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            MyInput(
+              inputController: _passwordController,
+              obscureText: true,
+              hintText: 'Password',
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            MyInput(
+              hintText: 'Confirm Password',
+              obscureText: true,
+              inputController: _confirmPasswordController,
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            MyButton(
+              onTap: () => register(context),
+              buttonText: 'Register',
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                'Already have an account?',
+                style: TextStyle(color: Theme.of(context).colorScheme.primary),
+              ),
+              TextButton(
+                onPressed: onTap,
+                style: ButtonStyle(
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                      EdgeInsets.symmetric(horizontal: 1)),
+                  overlayColor: MaterialStateProperty.all<Color>(
+                      Theme.of(context).colorScheme.background),
                 ),
-
-                const SizedBox(
-                  height: 50,
-                ),
-
-                Text(
-                  'Create a new account!',
+                child: Text(
+                  'Login',
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontSize: 20),
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.primary),
                 ),
-
-                SizedBox(
-                  height: 25,
-                ),
-                MyInput(
-                  hintText: 'Username',
-                  obscureText: false,
-                  inputController: _usernameController,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                MyInput(
-                  hintText: 'Email',
-                  obscureText: false,
-                  inputController: _emailController,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                MyInput(
-                  inputController: _passwordController,
-                  obscureText: true,
-                  hintText: 'Password',
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                MyInput(
-                  hintText: 'Confirm Password',
-                  obscureText: true,
-                  inputController: _confirmPasswordController,
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                MyButton(
-                  onTap: () => register(context),
-                  buttonText: 'Register',
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(
-                    'Already have an account?',
-                    style:
-                        TextStyle(color: Theme.of(context).colorScheme.primary),
-                  ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  GestureDetector(
-                    onTap: onTap,
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).colorScheme.primary),
-                    ),
-                  )
-                ]),
-              ]))
+              )
+            ]),
+          ]))
         ]));
   }
 }

@@ -9,16 +9,32 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: onTap,
+    return TextButton(
+        onPressed: onTap,
+        style: ButtonStyle(
+          overlayColor: MaterialStateProperty.all<Color>(
+              Theme.of(context).colorScheme.background),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(color: Colors.red))),
+          side: MaterialStateProperty.all(BorderSide(
+              color: Theme.of(context).colorScheme.tertiary, width: 0)),
+          backgroundColor: MaterialStateColor.resolveWith(
+              (states) => Theme.of(context).colorScheme.secondary),
+        ),
         child: Container(
-          padding: EdgeInsets.all(25),
-          margin: EdgeInsets.symmetric(horizontal: 25),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-              borderRadius: BorderRadius.circular(10)),
-          child: Text(buttonText),
+          // padding: EdgeInsets.all(25),
+          margin: EdgeInsets.symmetric(horizontal: 55, vertical: 5),
+          // alignment: Alignment.center,
+          // decoration: BoxDecoration(
+          //     color: Theme.of(context).colorScheme.secondary,
+          // borderRadius: BorderRadius.circular(100)),
+
+          child: Text(
+            buttonText,
+            style: TextStyle(fontSize: 20),
+          ),
         ));
   }
 }
