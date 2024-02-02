@@ -36,9 +36,11 @@ class MyDrawer extends StatelessWidget {
                     contentPadding: const EdgeInsets.all(10),
                     leading: const Icon(
                       Icons.home,
+                      size: 30,
                     ),
                     title: const Text(
                       'H O M E',
+                      style: TextStyle(fontSize: 20),
                     )),
               ),
               Padding(
@@ -53,15 +55,19 @@ class MyDrawer extends StatelessWidget {
                     contentPadding: const EdgeInsets.all(10),
                     leading: const Icon(
                       Icons.settings,
+                      size: 30,
                     ),
                     title: const Text(
                       'S E T T I N G S',
+                      style: TextStyle(fontSize: 20),
                     )),
               ),
             ]),
             Padding(
               padding: const EdgeInsets.only(left: 25),
               child: ListTile(
+                  textColor: Colors.redAccent,
+                  iconColor: Colors.redAccent,
                   onTap: () {
                     Navigator.pop(context);
                     AuthService auth = AuthService();
@@ -70,9 +76,11 @@ class MyDrawer extends StatelessWidget {
                   contentPadding: const EdgeInsets.all(10),
                   leading: const Icon(
                     Icons.logout,
+                    size: 30,
                   ),
                   title: const Text(
                     'L O G O U T',
+                    style: TextStyle(fontSize: 20),
                   )),
             ),
           ],

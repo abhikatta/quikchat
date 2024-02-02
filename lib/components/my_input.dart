@@ -21,6 +21,7 @@ class MyInput extends StatelessWidget {
           autofillHints: null,
           controller: inputController,
           obscureText: obscureText,
+          style: TextStyle(fontSize: 20),
           decoration: InputDecoration(
               filled: true,
               fillColor: Theme.of(context).colorScheme.tertiary,
