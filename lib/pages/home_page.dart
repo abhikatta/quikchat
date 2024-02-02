@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test_run_flutter/components/user_component.dart';
-import 'package:test_run_flutter/pages/chat_page.dart';
-import 'package:test_run_flutter/pages/profile_page.dart';
-import 'package:test_run_flutter/services/auth/auth_service.dart';
-import 'package:test_run_flutter/components/my_drawer.dart';
-import 'package:test_run_flutter/services/chat/chat_service.dart';
+import 'package:quikchat/components/user_component.dart';
+import 'package:quikchat/pages/chat_page.dart';
+import 'package:quikchat/pages/profile_page.dart';
+import 'package:quikchat/services/auth/auth_service.dart';
+import 'package:quikchat/components/my_drawer.dart';
+import 'package:quikchat/services/chat/chat_service.dart';
 
 class HomePage extends StatelessWidget {
   final AuthService _auth = AuthService();
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50))),
         title: const Text(
-          'Shit-Chant',
+          'QuikChat',
         ),
         actions: [
           IconButton(

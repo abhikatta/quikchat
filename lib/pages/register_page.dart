@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:test_run_flutter/services/auth/auth_service.dart';
-import 'package:test_run_flutter/components/my_button.dart';
-import 'package:test_run_flutter/components/my_input.dart';
+import 'package:quikchat/services/auth/auth_service.dart';
+import 'package:quikchat/components/my_button.dart';
+import 'package:quikchat/components/my_input.dart';
 
 class RegisterPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();

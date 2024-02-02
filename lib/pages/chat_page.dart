@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:test_run_flutter/components/my_input.dart';
-import 'package:test_run_flutter/services/auth/auth_service.dart';
-import 'package:test_run_flutter/services/chat/chat_service.dart';
+import 'package:quikchat/components/my_input.dart';
+import 'package:quikchat/services/auth/auth_service.dart';
+import 'package:quikchat/services/chat/chat_service.dart';
 
 class ChatPage extends StatelessWidget {
   ChatPage({super.key, required this.email, required this.receiverID});
@@ -91,22 +91,22 @@ class ChatPage extends StatelessWidget {
                     data['senderUserName']
                 ? 10
                 : 100),
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 3),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.tertiary,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(
                 _authService.getCurrentUser()!.displayName ==
                         data['senderUserName']
-                    ? 40
+                    ? 22
                     : 0),
-            bottomLeft: const Radius.circular(40),
-            bottomRight: const Radius.circular(40),
+            bottomLeft: const Radius.circular(22),
+            bottomRight: const Radius.circular(22),
             topRight: Radius.circular(
                 _authService.getCurrentUser()!.displayName ==
                         data['senderUserName']
                     ? 0
-                    : 40),
+                    : 22),
           ),
         ),
         child: Column(
@@ -115,13 +115,13 @@ class ChatPage extends StatelessWidget {
             Text(
               data['message'],
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 18,
               ),
             ),
             Text(
               "$day/$month | $time",
               style: const TextStyle(
-                fontSize: 10,
+                fontSize: 9,
               ),
             ),
           ],

@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'package:test_run_flutter/services/auth/auth_gate.dart';
-import 'package:test_run_flutter/firebase_options.dart';
-import 'package:test_run_flutter/themes/dark_mode.dart';
-import 'package:test_run_flutter/themes/light_mode.dart';
+import 'package:quikchat/services/auth/auth_gate.dart';
+import 'package:quikchat/firebase_options.dart';
+import 'package:quikchat/themes/dark_mode.dart';
+import 'package:quikchat/themes/light_mode.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
