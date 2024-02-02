@@ -21,6 +21,7 @@ samples, guidance on mobile development, and a full API reference.
   <img src="flutter_03.png" alt="Image 3" width="150" />
   <img src="flutter_04.png" alt="Image 4" width="150" />
   <img src="flutter_05.png" alt="Image 5" width="150" />
-  <img src="flutter_06.png" alt="Image 6" width="150" />
 </div>
-
+<div style="display: flex; justify-content: space-between;">
+  <img src="flutter_06.png" alt="Image 6" width="150" /><img src="flutter_07.png" alt="Image 6" width="150" /><img src="flutter_08.png" alt="Image 6" width="150" /><img src="flutter_09.png" alt="Image 6" width="150" /><img src="flutter_10.png" alt="Image 6" width="150" />
+</div>
