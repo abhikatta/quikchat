@@ -33,8 +33,13 @@ class ChatPage extends StatelessWidget {
         title: Text(email),
         centerTitle: true,
       ),
-      body: Column(
-          children: [Expanded(child: _buildMessageList()), _buildUserInput()]),
+      body: Column(children: [
+        Expanded(child: _buildMessageList()),
+        _buildUserInput(context),
+        const SizedBox(
+          height: 10,
+        ),
+      ]),
     );
   }
 
@@ -50,59 +55,70 @@ class ChatPage extends StatelessWidget {
           } else if (snapshot.data!.size == 0) {
             return const Center(child: Text('No previous chats found...'));
           } else {
-            return ListView(
-              children: snapshot.data!.docs
-                  .map((doc) => _buildMessageItem(doc, context))
-                  .toList(),
-            );
+            return ListView(children: [
+              const SizedBox(
+                height: 19,
+              ),
+              ...snapshot.data!.docs
+                  .map((doc) => _buildMessageItem(doc, context)),
+            ]);
           }
         });
   }
 
   Widget _buildMessageItem(DocumentSnapshot doc, BuildContext context) {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: Text(
-                    data['senderUserName'] ?? '',
-                    style: TextStyle(
-                        backgroundColor:
-                            Theme.of(context).colorScheme.secondary),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+    var timestamp = data['timestamp'].toDate();
+    var time =
+        timestamp.toString().split(' ')[1].split(':').sublist(0, 2).join(':');
+    var month = timestamp.month.toString();
+    var day = timestamp.day.toString();
+
+    return Align(
+      alignment:
+          _authService.getCurrentUser()!.displayName == data['senderUserName']
+              ? Alignment.centerRight
+              : Alignment.centerLeft,
+      child: Container(
+        margin: EdgeInsets.only(
+            top: 5,
+            bottom: 5,
+            left: _authService.getCurrentUser()!.displayName ==
+                    data['senderUserName']
+                ? 100
+                : 10,
+            right: _authService.getCurrentUser()!.displayName ==
+                    data['senderUserName']
+                ? 10
+                : 100),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.tertiary,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              data['message'],
+              style: const TextStyle(
+                fontSize: 20,
               ),
-              const Text(' : '),
-              Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                // color: Theme.of(context).colorScheme.inversePrimary),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 5,
-                  ),
-                  child: Text(
-                    data['message'],
-                  ),
-                ),
+            ),
+            Text(
+              "$day/$month | $time",
+              style: const TextStyle(
+                fontSize: 10,
               ),
-            ]));
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
-  Widget _buildUserInput() {
+  Widget _buildUserInput(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
             child: MyInput(
@@ -111,7 +127,20 @@ class ChatPage extends StatelessWidget {
           obscureText: false,
         )),
         IconButton(
-            onPressed: sendMessage, icon: const Icon(Icons.send_outlined))
+            splashRadius: 2,
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).colorScheme.primary),
+                padding: const MaterialStatePropertyAll<EdgeInsets>(
+                    EdgeInsets.all(10)),
+                alignment: Alignment.center,
+                iconColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).colorScheme.inversePrimary)),
+            onPressed: sendMessage,
+            icon: const Icon(Icons.arrow_forward_rounded, size: 35)),
+        const SizedBox(
+          width: 10,
+        ),
       ],
     );
   }
