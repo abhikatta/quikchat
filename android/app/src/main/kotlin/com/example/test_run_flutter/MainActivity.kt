@@ -1,4 +1,4 @@
-package com.example.test_run_flutter
+package com.example.quikchat
 
 import io.flutter.embedding.android.FlutterActivity
 
