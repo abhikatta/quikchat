@@ -64,9 +64,11 @@ class HomePage extends StatelessWidget {
           return const Text('Loading..');
         }
         return ListView(
-          children: snapshot.data!
-              .map<Widget>((userData) => _buildUserListItem(userData, context))
-              .toList(),
+          children: [
+            const SizedBox(height: 10),
+            ...snapshot.data!.map<Widget>(
+                (userData) => _buildUserListItem(userData, context))
+          ],
         );
       },
     );

@@ -25,15 +25,14 @@ class MyInput extends StatelessWidget {
               filled: true,
               fillColor: Theme.of(context).colorScheme.tertiary,
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  borderRadius: BorderRadius.all(Radius.circular(100)),
                   borderSide: BorderSide(
                     color: Theme.of(context).colorScheme.tertiary,
                   )),
               focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                   borderSide: BorderSide(
-                    color: Theme.of(context).colorScheme.secondary,
-                  )),
+                      color: Theme.of(context).colorScheme.primary, width: 3)),
               hintText: hintText,
               hintStyle: TextStyle(
                 color: Theme.of(context).colorScheme.primary,

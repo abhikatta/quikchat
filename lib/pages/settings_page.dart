@@ -7,9 +7,15 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: const MyDrawer(),
-        appBar: AppBar(
-          title: const Text('Settings'),
-        ));
+      drawer: const MyDrawer(),
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
+      body: const Center(
+          child: Text(
+        'Still Todo',
+        style: TextStyle(fontSize: 35),
+      )),
+    );
   }
 }
