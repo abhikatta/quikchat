@@ -1,6 +1,7 @@
 # QuikChat
 ### A simple and minimalistic flutter x firebase chat application.
 
+### Click here to download <a href='https://github.com/abhikatta/quikchat/releases/download/v1/quikchat.apk'>apk</a>.
  
 <div style="display: flex; justify-content: space-between;">
   <img src="flutter_01.png" alt="Image 1" width="150" />
